@@ -1,6 +1,9 @@
 """
 This is a re-write of the Kitronic program supplied in the datasheet
 5612-kitronik-game-zip-64-microbit-datasheet.pdf
+
+press up, down, left, right to move the sprite
+press fire 1 & 2 to change the sprite colour
 """
 import gamezip
 import music
