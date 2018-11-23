@@ -1,3 +1,6 @@
+#
+# game_one.py - a simple program demonstrating the kitronik game zip 64
+# Author - Phil Hall, November 2018
 """
 This is a re-write of the Kitronic program supplied in the datasheet
 5612-kitronik-game-zip-64-microbit-datasheet.pdf

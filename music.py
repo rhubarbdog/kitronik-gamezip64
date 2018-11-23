@@ -1,3 +1,6 @@
+#
+# music.py - select one of 3 tunes
+# Author - Phil Hall, November 2018
 """
 press up and down to change the tune index
 press button 1 to select and play 
