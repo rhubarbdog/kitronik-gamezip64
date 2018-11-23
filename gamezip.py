@@ -1,3 +1,6 @@
+#
+# gamezip.py - A simple object to interface with the kitronik gamezip 64 joypad
+# Author - Phil Hall, November 2018
 from microbit import *
 import neopixel
 import music
