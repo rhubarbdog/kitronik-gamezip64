@@ -13,7 +13,6 @@ Keys have the following methods:<br/>
 <table><tr><td>method</td><td>type</td></tr>
 <tr><td><code>.is_pressed()</code></td><td><code>boolean</code></td><td>returns True if the button is pressed.</td></tr>
 <tr><td><code>.was_pressed()</code></td><td><code>boolean</code></td><td>returns True if the key has been pressed since reset or the last call to this method.</td></tr>
-<tr><td><code>.get_presses()</code></td><td><code>integer</code></td><td>returns the number of times the key has been pressed since reset or the last call to this method.</td></tr>
 </table>
 <br/>
 <code>GAMEZIP</code> has the following methods:<br/>
