@@ -1,7 +1,4 @@
-#
-# gamezip.py - A simple object to interface with the kitronik gamezip 64 joypad
-# Author - Phil Hall, November 2018
-from microbit import *
+from microbit import pin8, pin14, pin12, pin13, pin15, pin16, pin0, pin1, pin2
 import neopixel
 import music
 import time
@@ -11,7 +8,6 @@ class KEY:
         self._pin = pin
         self._is_pressed = False
         self._was_pressed = False
-        self._get_presses = 0
 
     def is_pressed(self):
         return self._is_pressed
@@ -21,11 +17,6 @@ class KEY:
         self._was_pressed = False
         return value
 
-    def get_presses(self):
-        value = self._get_presses
-        self._get_presses = 0
-        return value
-
     def _check(self):
         if self._pin.read_digital() == 0:
             self._pressed()
@@ -33,7 +24,6 @@ class KEY:
             self._released()
             
     def _pressed(self):
-        self._get_presses += 1
         self._was_pressed = True
         self._is_pressed = True
 
@@ -53,14 +43,6 @@ class GAMEZIP():
         self.button_right = KEY(pin13)
         self.button_1 = KEY(pin15)
         self.button_2 = KEY(pin16)
-
-    def _key_handler(self):
-        ALL_KEYS = (self.button_up, self.button_down,
-                    self.button_left, self.button_right,
-                    self.button_1, self.button_2)
-
-        for button in ALL_KEYS:
-            button._check()
 
     def plot(self, x, y, color):
         self._zip_led[x + (y * 8)] = (color[0], color[1], color[2])
@@ -85,10 +67,15 @@ class GAMEZIP():
     def sleep(self, duration):
         current = time.ticks_ms()
         end = time.ticks_add(current, duration)
+        ALL_KEYS = (self.button_up, self.button_down,
+                    self.button_left, self.button_right,
+                    self.button_1, self.button_2)
 
         while True:
             # check for key presses
-            self._key_handler()
+            for button in ALL_KEYS:
+                button._check()
+
             # stop vibrating if the timer has expired
             if (not self._vibrate is None) and \
                time.ticks_diff(current, self._vibrate) >= 0:
