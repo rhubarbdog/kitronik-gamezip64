@@ -1,4 +1,4 @@
-from microbit import pin8, pin14, pin12, pin13, pin15, pin16, pin0, pin1, pin2
+import microbit
 import neopixel
 import music
 import time
@@ -32,17 +32,19 @@ class KEY:
 
 class GAMEZIP():
     def __init__(self):
-        self._zip_led = neopixel.NeoPixel(pin0, 64)
+        self._zip_led = neopixel.NeoPixel(microbit.pin0, 64)
         self._zip_led.clear()
 
+        self._clock = 0
+        self._future  = None
         self._vibrate = None
 
-        self.button_up = KEY(pin8)
-        self.button_down = KEY(pin14)
-        self.button_left = KEY(pin12)
-        self.button_right = KEY(pin13)
-        self.button_1 = KEY(pin15)
-        self.button_2 = KEY(pin16)
+        self.button_up = KEY(microbit.pin8)
+        self.button_down = KEY(microbit.pin14)
+        self.button_left = KEY(microbit.pin12)
+        self.button_right = KEY(microbit.pin13)
+        self.button_1 = KEY(microbit.pin15)
+        self.button_2 = KEY(microbit.pin16)
 
     def plot(self, x, y, color):
         self._zip_led[x + (y * 8)] = (color[0], color[1], color[2])
@@ -54,16 +56,23 @@ class GAMEZIP():
         self._zip_led.show()
 
     def play_tune(self, tune, wait = False):
-        music.play(tune, pin2, wait)
+        music.play(tune, microbit.pin2, wait)
 
     def vibrate(self, duration, wait = False):
         self._vibrate = time.ticks_add(time.ticks_ms(), duration)
-        pin1.write_digital(1)
+        microbit.pin1.write_digital(1)
         if wait:
             time.sleep_ms(duration)
-            pin1.write_digital(0)
+            microbit.pin1.write_digital(0)
             self._vibrate = None
 
+    def reset_clock(self):
+        self._clock = 0
+        self._future = time.ticks_add(time.ticks_ms(), 1000)
+
+    def time(self):
+        return self._clock
+    
     def sleep(self, duration):
         current = time.ticks_ms()
         end = time.ticks_add(current, duration)
@@ -79,11 +88,17 @@ class GAMEZIP():
             # stop vibrating if the timer has expired
             if (not self._vibrate is None) and \
                time.ticks_diff(current, self._vibrate) >= 0:
-                pin1.write_digital(0)
+                microbit.pin1.write_digital(0)
                 self._vibrate = None
 
+            if not self._future is None:
+                elapse = time.ticks_diff(current, self._future)
+                if elapse >= 0 :
+                    self._clock += 1
+                    self._future = time.ticks_add(current, 1000 - elapse)
+                    
             if time.ticks_diff(current, end) >=0:
                 break
 
-            current = time.ticks_ms()
             time.sleep_us(50)
+            current = time.ticks_ms()
