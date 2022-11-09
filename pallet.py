@@ -40,23 +40,15 @@ while True:
     joypad.show_screen()
     joypad.sleep(100)
 
-    if not shown:
-        shown = True
-        if cursor == 0:
-            col = red
-        elif cursor == 3:
-            col = green
-        else:
-            col = blue
-        display.scroll(str(col * 5), wait = False)
-
     save = cursor
+    if joypad.button_1.is_pressed() or joypad.button_2.is_pressed():
+        display.scroll("(" + str(red * 5) + ", " + str(green * 5) + ", " + \
+                       str(blue * 5) + ")", wait = False)
+
     if joypad.button_left.is_pressed():
         cursor -= 3
-        shown = False
     if joypad.button_right.is_pressed():
         cursor += 3
-        shown = False
 
     if cursor < 0:
         cursor = 0

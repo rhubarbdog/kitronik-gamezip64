@@ -1,6 +1,15 @@
-<h1><b>A micropython object for the Kitronik Game Zip 64 - <code>gamezip.py</code></b></h1>
+<h1><b>Kitronik Game Zip 64 - <code>gamezip.py</code></b></h1>
+
 <br/><br/>
-The aim of this object is to give similar functionality to the joypad buttons as is available to <code>microbit.button_a</code> and <code>microbit.button_b</code>.  It also facilitates asynchronous vibration (no pause when vibrating).  This is acheived via method <code>GAMEZIP.sleep</code>, you must not use <code>microbit.sleep</code>.  If there are no sleeps in your program you must make regular calls to <code>GAMEZIP.sleep(0)</code>.  <code>GAMEZIP.sleep</code> polls the keys on the joypad and stops any vibration, if the duration has not expired it sleeps for 50 micro seconds and loops.
+The aim of this object is to give similar functionality to the joypad buttons
+as is available to <code>microbit.button_a</code> and <code>microbit.button_b
+</code>.  It also facilitates asynchronous vibration (no pause when vibrating).
+This is acheived via method <code>GAMEZIP.sleep</code>, you must not use <code>
+microbit.sleep</code>.  If there are no sleeps in your program you must make
+regular calls to <code>GAMEZIP.sleep(0)</code>.  <code>GAMEZIP.sleep</code>
+polls the keys on the joypad and stops any vibration, if the duration has not
+expired it sleeps for 50 micro seconds and loops.
+
 <br/><br/>
 The <code>GAMEZIP</code> object is made up of 6 <code>KEY</code> objects:<br/>
 <code>GAMEZIP.button_up</code><br/>
@@ -28,20 +37,25 @@ Keys have the following methods:<br/>
 <tr><td><code>.sleep(duration)</code></td><td>this method scans the keys and stops asynchronous vibration whilst it sleeps for the given number of milli seconds. It is crucial to make regular calls to this method to give a good keypad response.</td></tr>
 </table>
 <br/><br/>
-To use a game you need to flash the microbit with `uflash` or copy a `.hex` file over then use microFS to transfer the module `gamezip.py` and the program to become `main.py` as in the following example.
-```
+To use a game you need to flash the microbit with <code>uflash</code> or copy
+a  <code>microbit.hex</code> file over then use microFS to transfer the module
+<code>gamezip.py</code> and the program to become <code>main.py<code> as in the
+following example.
+<br/><br/>
+<code>
 ufs put gamezip.py
 ufs put battle-ships.py main.py
-```
+</code>
 <br/>
 
-## Games ##
+<h2>Games</h2>
 
-`game-one.py`
+<code>game-one.py</code>
 
-a demo of using the module `gamezip.py` 
+a demo of using the module <code>gamezip.py</code>. Move the sprite around the
+screen using the arrow keys and change it's colour with the fire buttons. 
 
-`battle-ships.py`
+<code>battle-ships.py</code>
 
 a 2 player game for the gamezip and microbit version 2
 position your boats using the arrow buttons, rotate them with fire button 1,
