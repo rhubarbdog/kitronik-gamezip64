@@ -39,7 +39,7 @@ Keys have the following methods:<br/>
 <br/><br/>
 To use a game you need to flash the microbit with <code>uflash</code> or copy
 a  <code>microbit.hex</code> file over then use microFS to transfer the module
-<code>gamezip.py</code> and the program to become <code>main.py<code> as in the
+<code>gamezip.py</code> and the program to become <code>main.py</code> as in the
 following example.
 <br/><br/>
 <code>
@@ -51,12 +51,20 @@ ufs put battle-ships.py main.py
 <h2>Games</h2>
 
 <code>game-one.py</code>
-
+<br/><br/>
 a demo of using the module <code>gamezip.py</code>. Move the sprite around the
 screen using the arrow keys and change it's colour with the fire buttons. 
-
+<br/><br/>
+<code>pallet.py</code>
+<br/><br/>
+Move the cursor left and right to select a primary colour, increase and decrease it's intensity with up and down. Reveal, the tuple to define the colour with either fire button 
+<br/><br/>
+<code>music.py</code>
+<br/><br/>
+Turn your gamezip into a juke box, us up and down to change the tune
+<br/><br/>
 <code>battle-ships.py</code>
-
+<br/><br/>
 a 2 player game for the gamezip and microbit version 2
 position your boats using the arrow buttons, rotate them with fire button 1,
 fix them with fire button one. When bombing your opponent the arrow keys move
