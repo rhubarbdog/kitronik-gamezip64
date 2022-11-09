@@ -6,6 +6,7 @@ from microbit import *
 import gamezip 
 import radio
 import random
+import music
 
 screen = [' ' * 8, ' ' * 8, ' ' * 8, ' ' * 8, ' ' * 8, ' ' * 8, \
           ' ' * 8, ' ' * 8] 
@@ -100,7 +101,7 @@ def position_boats():
                         colide = True
 
                 if colide:
-                    joypad.vibrate(250)
+                    joypad.play_tune(['c2:1'])
                 else:
                     joypad.play_tune(['c5:2'], wait = True)
                     for delta in range(boats[ship]):
@@ -126,13 +127,13 @@ def position_boats():
                 else:
                     flash = this_boat
 
-            joypad.sleep(100)
+            joypad.sleep(10)
             loops += 1
 
 
 def drop_bomb():
-    xxx = 0
-    yyy = 0
+    xxx = 3
+    yyy = 3
     loops = 1
     this_bomb = [60, 60, 0]
     flash = this_bomb
@@ -156,7 +157,7 @@ def drop_bomb():
 
         if joypad.button_2.is_pressed():
             if opposition[yyy][xxx] != ' ':
-                joypad.vibrate(250)
+                joypad.play_tune(['c2:1'])
             else:
                 joypad.play_tune(['c5:2'], wait = True)
                 radio.send(str(xxx) + ',' + str(yyy))
@@ -167,25 +168,27 @@ def drop_bomb():
                         break
                     joypad.sleep(100)
 
-                if received == 'H':
-                    display.scroll('Hit', wait = False)
-                elif received == 'M':
-                    display.scroll('Miss', wait = False)
-                else:
-                    display.scroll('Destroyed', wait = False)
-                    
+                destroyed = False
                 if received == 'D':
                     received = 'H'
+                    destroyed = True
 
                 opposition[yyy] = opposition[yyy][:xxx] + received + \
                     opposition[yyy][xxx + 1:]
 
                 draw_opposition()
                 joypad.show_screen()
+
+                if destroyed:
+                    display.scroll('Destroyed')
+                elif received == 'H':
+                    display.scroll('Hit')
+                else:
+                    display.scroll('Miss')
+
                 joypad.sleep(2000)
                 while True:
                     received = radio.receive()
-
                     if not received is None:
                         break
                     joypad.sleep(100)
@@ -204,7 +207,7 @@ def drop_bomb():
             else:
                 flash = this_bomb
 
-        joypad.sleep(100)
+        joypad.sleep(10)
         loops += 1
     
     return received == 'dead'
@@ -218,9 +221,10 @@ joypad.show_screen()
 while True:
     selected = random.choice(('me', 'you'))
     radio.send(selected)
-    received = None
-    while received is None:
+    while True:
         received = radio.receive()
+        if not received is None:
+            break
         joypad.sleep(100)
 
     if selected != received:
@@ -230,7 +234,10 @@ first = True
 
 while True:
     if first and selected == 'me':
-        drop_bomb()
+        dead = drop_bomb()
+
+    if dead:
+        break
 
     draw_screen()
     joypad.show_screen()
@@ -239,10 +246,8 @@ while True:
 
     while True:
         received = radio.receive()
-
         if not received is None:
             break
-
         joypad.sleep(100)
 
     xxx, yyy = eval("(" + received + ")")
@@ -295,13 +300,14 @@ while True:
 draw_screen()
 joypad.show_screen()
 if destroyed:
-    display.scroll('looser')
-    display.show(Image.SAD)
+    show = Image.SAD
+    joypad.play_tune(music.FUNERAL)
 else:
-    display.scroll('winner')
-    display.show(Image.HAPPY)
-
+    show = Image.HAPPY
+    joypad.play_tune(music.POWER_UP)
+    
 while True:
+    display.show(show)
     joypad.sleep(2000)
     draw_opposition()
     joypad.show_screen()

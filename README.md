@@ -62,11 +62,19 @@ Move the cursor left and right to select a primary colour, increase and decrease
 <br/><br/>
 <code>music.py</code>
 <br/><br/>
-Turn your gamezip into a juke box, us up and down to change the tune
+Turn your gamezip into a juke box, use up and down to change the tune
 <br/><br/>
 <code>battle-ships.py</code>
 <br/><br/>
-a 2 player game for the gamezip and microbit version 2. Position your boats
-using the arrow buttons, rotate them with fire button 1, fix them with fire
-button one. When bombing your opponent the arrow keys move the bomb and
-fire button 2 drops it
+A 2 player game for the gamezip and microbit version 2, you'll need two of each
+. Position your boats using the arrow buttons, rotate them with fire button 1,
+fix them with fire button one. When bombing your opponent the arrow keys move
+the bomb and fire button 2 drops it
+<br/><br/>
+<code>snake.py</code>
+Use the arrow keys to guide snake around a massive room eating food, growing a
+longer and longer tail. Use the map on the microbit to find your next food.
+Snake is the bright dot, food the faint ones.  Be warned food goes bad and
+turns to stone, just like the perimeter wall.  Avoid your tail and avoid stones.
+<br/><br/>
+
