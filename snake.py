@@ -72,12 +72,16 @@ def draw_map(snake_x, snake_y):
     for xxx in range(1,6):
         for yyy in range(1,6):
             for tmp in food:
-                if tmp[0] > divide * (xxx - 1) and tmp[0] <= divide * xxx and \
-                   tmp[1] > divide * (yyy - 1) and tmp[1] <= divide * yyy:
+                if tmp[0] > int(divide * (xxx - 1)) and \
+                   tmp[0] <= int(divide * xxx) and \
+                   tmp[1] > int(divide * (yyy - 1)) and \
+                   tmp[1] <= int(divide * yyy):
                     display.set_pixel(xxx - 1, yyy - 1, 3)
 
-            if snake_x > divide * (xxx - 1) and snake_x <= divide * xxx and \
-               snake_y > divide * (yyy - 1) and snake_y <= divide * yyy:
+            if snake_x > int(divide * (xxx - 1)) and \
+               snake_x <= int(divide * xxx) and \
+               snake_y > int(divide * (yyy - 1)) and \
+               snake_y <= int(divide * yyy):
                     display.set_pixel(xxx - 1, yyy - 1, 9)
                     
                 
