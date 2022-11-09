@@ -28,7 +28,11 @@ Keys have the following methods:<br/>
 <tr><td><code>.sleep(duration)</code></td><td>this method scans the keys and stops asynchronous vibration whilst it sleeps for the given number of milli seconds. It is crucial to make regular calls to this method to give a good keypad response.</td></tr>
 </table>
 <br/><br/>
-There are 3 example programs <code>game_one.py, pallet.py & music.py</code> They all have a brief instruction in their source code.
+To use a game you need to flash the microbit with `uflash` or copy a `.hex` file over then use microFS to transfer the module `gamezip.py` and the program to become `main.py` as in the following example.
+```
+ufs put gamezip.py
+ufs put battle-ships.py main.py
+```
 <br/>
 
 ## Games ##
