@@ -77,6 +77,5 @@ Use the arrow keys to guide snake around a massive room eating food, growing a
 longer and longer tail. Use the map on the microbit to find your next food.
 Snake is the bright dot, food the faint ones.  Be warned food goes bad and
 turns to stone, just like the perimeter wall made of stone.  Avoid your tail
-and avoid stones.
+and avoid stones. This is for version 2 microbits.
 <br/><br/>
-
