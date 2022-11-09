@@ -43,7 +43,8 @@ a  <code>microbit.hex</code> file over then use microFS to transfer the module
 following example.
 <br/><br/>
 <code>
-ufs put gamezip.py<br/><br/>
+ufs put gamezip.py
+</code><br/><code>
 ufs put battle-ships.py main.py
 </code>
 <br/>
