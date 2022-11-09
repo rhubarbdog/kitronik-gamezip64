@@ -30,3 +30,16 @@ Keys have the following methods:<br/>
 <br/><br/>
 There are 3 example programs <code>game_one.py, pallet.py & music.py</code> They all have a brief instruction in their source code.
 <br/>
+
+## Games ##
+
+`game-one.py`
+
+a demo of using the module `gamezip.py` 
+
+`battle-ships.py`
+
+a 2 player game for the gamezip and microbit version 2
+position your boats using the arrow buttons, rotate them with fire button 1,
+fix them with fire button one. When bombing your opponent the arrow keys move
+the bomb and fire button 2 drops it
