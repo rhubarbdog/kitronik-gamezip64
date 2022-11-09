@@ -43,7 +43,7 @@ a  <code>microbit.hex</code> file over then use microFS to transfer the module
 following example.
 <br/><br/>
 <code>
-ufs put gamezip.py
+ufs put gamezip.py<br/>
 ufs put battle-ships.py main.py
 </code>
 <br/>
@@ -65,7 +65,7 @@ Turn your gamezip into a juke box, us up and down to change the tune
 <br/><br/>
 <code>battle-ships.py</code>
 <br/><br/>
-a 2 player game for the gamezip and microbit version 2
-position your boats using the arrow buttons, rotate them with fire button 1,
-fix them with fire button one. When bombing your opponent the arrow keys move
-the bomb and fire button 2 drops it
+a 2 player game for the gamezip and microbit version 2. Position your boats
+using the arrow buttons, rotate them with fire button 1, fix them with fire
+button one. When bombing your opponent the arrow keys move the bomb and
+fire button 2 drops it
