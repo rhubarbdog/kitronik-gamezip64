@@ -72,9 +72,11 @@ fix them with fire button one. When bombing your opponent the arrow keys move
 the bomb and fire button 2 drops it
 <br/><br/>
 <code>snake.py</code>
+<br/><br/>
 Use the arrow keys to guide snake around a massive room eating food, growing a
 longer and longer tail. Use the map on the microbit to find your next food.
 Snake is the bright dot, food the faint ones.  Be warned food goes bad and
-turns to stone, just like the perimeter wall.  Avoid your tail and avoid stones.
+turns to stone, just like the perimeter wall made of stone.  Avoid your tail
+and avoid stones.
 <br/><br/>
 
