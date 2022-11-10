@@ -58,7 +58,7 @@ screen using the arrow keys and change it's colour with the fire buttons.
 <br/><br/>
 <code>pallet.py</code>
 <br/><br/>
-Move the cursor left and right to select a primary colour, increase and decrease it's intensity with up and down. Reveal, the tuple to define the colour with either fire button, uses <code>gamezip.py</> 
+Move the cursor left and right to select a primary colour, increase and decrease it's intensity with up and down. Reveal, the tuple to define the colour with either fire button, uses <code>gamezip.py</code> 
 <br/><br/>
 <code>music.py</code>
 <br/><br/>
