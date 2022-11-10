@@ -24,12 +24,13 @@ sprite_y = 3
 colours = [[20, 0, 0], [20, 20, 0], [0, 20, 0], [0, 0, 20],
            [20, 0, 20], [20, 20, 20]]
 sprite_colour = colours[3]
+joypad.clear_screen()
 
 while True:
-    joypad.clear_screen()
     joypad.plot(sprite_x, sprite_y, sprite_colour)
     joypad.show_screen()
     joypad.sleep(100)
+    joypad.plot(sprite_x, sprite_y, (0, 0, 0))
     
     if joypad.button_up.is_pressed():
         if sprite_y == 0:
