@@ -1,3 +1,8 @@
+#
+# Author  - Phil Hall, November 2022
+# License - MIT
+#
+
 from microbit import *
 import neopixel
 import music
