@@ -1,6 +1,6 @@
 <h1><b>Kitronik Gamezip64</b> - <code>gamezip.py</code></h1>
 
-<br/><br/>
+<br/>
 The aim of this object is to give similar functionality to the joypad buttons
 as is available to <code>microbit.button_a</code> and <code>microbit.button_b
 </code>.  It also facilitates asynchronous vibration (no pause when vibrating).
@@ -10,14 +10,15 @@ regular calls to <code>GAMEZIP.sleep(0)</code>.  <code>GAMEZIP.sleep</code>
 polls the keys on the joypad and stops any vibration, if the duration has not
 expired it sleeps for 50 micro seconds and loops.
 
-<br/><br/>
+<br/>
 The <code>GAMEZIP</code> object is made up of 6 <code>KEY</code> objects:<br/>
 <code>GAMEZIP.button_up</code><br/>
 <code>GAMEZIP.button_down</code><br/>
 <code>GAMEZIP.button_left</code><br/>
 <code>GAMEZIP.button_right</code><br/>
 <code>GAMEZIP.button_1</code><br/>
-<code>GAMEZIP.button_2</code><br/>
+<code>GAMEZIP.button_2</code><br/><br/>
+
 Keys have the following methods:<br/>
 <table><tr><td>method</td><td>type</td></tr>
 <tr><td><code>.is_pressed()</code></td><td><code>boolean</code></td><td>returns True if the button is pressed.</td></tr>
@@ -52,28 +53,23 @@ ufs put battle-ships.py main.py
 <h2>Games</h2>
 
 <h4>game-one.py</h4>
-<br/><br/>
 a demo of using the module <code>gamezip.py</code>. Move the sprite around the
 screen using the arrow keys and change it's colour with the fire buttons. 
-<br/><br/>
+<br/>
 <h4>pallet.py</h4>
-<br/><br/>
 Move the cursor left and right to select a primary colour, increase and decrease it's intensity with up and down. Reveal, the tuple to define the colour with either fire button, uses <code>gamezip.py</code> 
-<br/><br/>
+<br/>
 <h4>music.py</h4>
-<br/><br/>
 Turn your gamezip into a juke box, use up and down to change the tune. Uses
 <code>gamezip.py</code>
-<br/><br/>
+<br/>
 <h4>battle-ships.py</h4>
-<br/><br/>
 A 2 player game for the gamezip and microbit version 2, you'll need two of each
 . Position your boats using the arrow buttons, rotate them with fire button 1,
 fix them with fire button one. When bombing your opponent the arrow keys move
 the bomb and fire button 2 drops it. Uses <code>gamezip.py</code>.
-<br/><br/>
+<br/>
 <h4>snake.py</h4>
-<br/><br/>
 Use the arrow keys to guide snake around a massive room eating food, growing a
 longer and longer tail. Use the map on the microbit to find your next food.
 Snake is the bright dot, food the faint ones.  Be warned food goes bad and
@@ -82,9 +78,8 @@ and avoid stones, avoid poison, eat food. This is for version 2 microbits and us
 <br/>
 <h3>Two Weeks - a Fortnight clone for microbit</h3>
 <br/>
-<code>two_weeks_xclient.py</code><br/>
-<code>two_weeks_xserver.py</code>
-<br/><br/>
+<h4>two_weeks_xclient.py</h4>
+<h4>two_weeks_xserver.py</h4>
 This game requires a gamezip64 and a version 2 microbit per player and a
 further version 2 microbit to host the game.  Freshly flash the microbits with
 <code>uflash</code> or copy a <code>microbit.hex</code> file directly to the
@@ -94,7 +89,7 @@ two_weeks_xserver.py</code> copy it with the following commands<br/><br/>
 <code>ufs put two_weeks_xserver.py main.py</code><br/><br/>
 The final microbit which hosts the game running program <code>
 two_weeks_xclient.py</code> copy it to the microbit as follows.<br/><br/>
-<code>ufs put two_weeks_xclient.py</code><br/><br/>
+<code>ufs put two_weeks_xclient.py main.py</code><br/><br/>
 
 Reset the host, switch on the gamezip64's there is a thirty second period to
 automatically enroll for the game, the host (xclient) will be scrolling the
