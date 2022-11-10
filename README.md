@@ -58,38 +58,48 @@ screen using the arrow keys and change it's colour with the fire buttons.
 <br/><br/>
 <code>pallet.py</code>
 <br/><br/>
-Move the cursor left and right to select a primary colour, increase and decrease it's intensity with up and down. Reveal, the tuple to define the colour with either fire button 
+Move the cursor left and right to select a primary colour, increase and decrease it's intensity with up and down. Reveal, the tuple to define the colour with either fire button, uses <code>gamezip.py</> 
 <br/><br/>
 <code>music.py</code>
 <br/><br/>
-Turn your gamezip into a juke box, use up and down to change the tune
+Turn your gamezip into a juke box, use up and down to change the tune. Uses
+<code>gamezip.py</code>
 <br/><br/>
 <code>battle-ships.py</code>
 <br/><br/>
 A 2 player game for the gamezip and microbit version 2, you'll need two of each
 . Position your boats using the arrow buttons, rotate them with fire button 1,
 fix them with fire button one. When bombing your opponent the arrow keys move
-the bomb and fire button 2 drops it
+the bomb and fire button 2 drops it. Uses <code>gamezip.py</code>.
 <br/><br/>
 <code>snake.py</code>
 <br/><br/>
 Use the arrow keys to guide snake around a massive room eating food, growing a
 longer and longer tail. Use the map on the microbit to find your next food.
 Snake is the bright dot, food the faint ones.  Be warned food goes bad and
-turns to stone, just like the perimeter wall made of stone.  Avoid your tail
-and avoid stones. This is for version 2 microbits.
+turns to poison and the perimeter wall is made of stone.  Avoid your tail
+and avoid stones, avoid poison, eat food. This is for version 2 microbits and uses <code>gamezip.py</code>.
 <br/>
 <h3>Two Weeks - a Fortnight clone for microbit</h3>
 <br/>
 <code>two_weeks_xclient.py</code><br/>
 <code>two_weeks_xserver.py</code>
 <br/><br/>
-This game requires a gamezip64 and a version 2 microbit per player and a further version 2 microbit to host the game.  Freshly flash the microbits with <code>uflash</code> or copy a <code>microbit.hex</code> file directly to the microbit. Use microFS or the file transfer facility in <code>mu-editor</code>. to copy to programs over
-Each players microbit runs the program <code>two_weeks_xserver.py</code> copy it with the following commands<br/><br/>
+This game requires a gamezip64 and a version 2 microbit per player and a
+further version 2 microbit to host the game.  Freshly flash the microbits with
+<code>uflash</code> or copy a <code>microbit.hex</code> file directly to the
+microbit. Use microFS or the file transfer facility in <code>mu-editor</code>
+to copy to programs over. Each players microbit runs the program <code>
+two_weeks_xserver.py</code> copy it with the following commands<br/><br/>
 <code>ufs put two_weeks_xserver.py main.py</code><br/><br/>
-The final microbit which hosts the game running program <code>two_weeks_xclient.py</code> copy it to the microbit as follows.<br/><br/>
+The final microbit which hosts the game running program <code>
+two_weeks_xclient.py</code> copy it to the microbit as follows.<br/><br/>
 <code>ufs put two_weeks_xclient.py</code><br/><br/>
 
-Reset the host, switch on the gamezip64's there is a thirty second period to enroll for the game, the host (xclient) will be scrolling the message 'Two Weeks' and each player should be scrolling their player number. Then 5, 4, 3, 2, 1 the game has started. You have been abandonned in a unknown world, use the compass displayed on the microbit to find the exit. Guide the red character to the purple door and win the race.
-
-This is a genuine multi player game.
+Reset the host, switch on the gamezip64's there is a thirty second period to
+automatically enroll for the game, the host (xclient) will be scrolling the
+message 'Two Weeks' and each player should be scrolling their player number.
+Then 5, 4, 3, 2, 1 the game has started. You have been abandonned in a unknown
+world, use the compass displayed on the microbit to find the exit.
+Guide the red sprite to the purple door and win the race. This is a genuine
+multi player game.
