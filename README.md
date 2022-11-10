@@ -101,5 +101,5 @@ automatically enroll for the game, the host (xclient) will be scrolling the
 message 'Two Weeks' and each player should be scrolling their player number.
 Then 5, 4, 3, 2, 1 the game has started. You have been abandonned in a unknown
 world, use the compass displayed on the microbit to find the exit.
-Guide the red sprite to the purple door and win the race. This is a genuine
+Guide the red sprite to the purple exit and win the race. This is a genuine
 multi player game.
