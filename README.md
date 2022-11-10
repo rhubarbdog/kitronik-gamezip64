@@ -1,4 +1,4 @@
-<h1><b>Kitronik Game Zip 64 - <code>gamezip.py</code></b></h1>
+<h1><b>Kitronik Gamezip64</b> - <code>gamezip.py</code></h1>
 
 <br/><br/>
 The aim of this object is to give similar functionality to the joypad buttons
@@ -51,28 +51,28 @@ ufs put battle-ships.py main.py
 
 <h2>Games</h2>
 
-<code>game-one.py</code>
+<h4>game-one.py</h4>
 <br/><br/>
 a demo of using the module <code>gamezip.py</code>. Move the sprite around the
 screen using the arrow keys and change it's colour with the fire buttons. 
 <br/><br/>
-<code>pallet.py</code>
+<h4>pallet.py</h4>
 <br/><br/>
 Move the cursor left and right to select a primary colour, increase and decrease it's intensity with up and down. Reveal, the tuple to define the colour with either fire button, uses <code>gamezip.py</code> 
 <br/><br/>
-<code>music.py</code>
+<h4>music.py</h4>
 <br/><br/>
 Turn your gamezip into a juke box, use up and down to change the tune. Uses
 <code>gamezip.py</code>
 <br/><br/>
-<code>battle-ships.py</code>
+<h4>battle-ships.py</h4>
 <br/><br/>
 A 2 player game for the gamezip and microbit version 2, you'll need two of each
 . Position your boats using the arrow buttons, rotate them with fire button 1,
 fix them with fire button one. When bombing your opponent the arrow keys move
 the bomb and fire button 2 drops it. Uses <code>gamezip.py</code>.
 <br/><br/>
-<code>snake.py</code>
+<h4>snake.py</h4>
 <br/><br/>
 Use the arrow keys to guide snake around a massive room eating food, growing a
 longer and longer tail. Use the map on the microbit to find your next food.
