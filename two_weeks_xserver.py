@@ -10,7 +10,7 @@ import radio
 import machine
 import time
 
-snooze = 10
+snooze = 15
 max_players = 20
 # Message IDs
 # 0 - global message to all clients

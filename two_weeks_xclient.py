@@ -21,7 +21,7 @@ screen = ["w" + ("..,,..,,..,,..,,..,," * 5) + "w", \
 screen = [wall] + (screen * 25) + [wall]
 
 root_2_1 = 0.7071067811865475244
-snooze = 10
+snooze = 15
 max_players = 20
 total_players = 0
 max_walls = 200
@@ -142,7 +142,8 @@ for _ in range(total_players):
             break
 
 # Play the game
-radio.send("0,'Ready'")
+if total_players > 0:
+    radio.send("0,'Ready'")
 
 winner = -1
 loops = 0
@@ -151,7 +152,7 @@ players_todo = []
 for i in range(total_players):
     players_todo.append(i)
     
-while True:
+while total_players > 0:
     if loops % 100 == 0:
         image, index = ticker(index)
     display.show(image)
@@ -322,7 +323,7 @@ while True:
                         player_list[i + 1:]
             elif message[0] == 1 and message[1] == 0:
                 radio.send("2,-2," + str(message[2]) + \
-                           ", 'Game already started.'")
+                           ", ' Game already started'")
             else:
                 raise CrashError
 
