@@ -79,7 +79,7 @@ and avoid stones, avoid poison, eat food. This is for version 2 microbits and us
 <h3>Two Weeks - a Fortnight clone for microbit</h3>
 <b>
 <code>two_weeks_xclient.py</code><br/>
-<code>two_weeks_xserver.py</code>
+<code>two_weeks_xserver.py</code><br/><br/>
 </b>
 This game requires a gamezip64 and a version 2 microbit per player and a
 further version 2 microbit to host the game.  Freshly flash the microbits with
