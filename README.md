@@ -78,18 +78,18 @@ longer and longer tail. Use the map on the microbit to find your next food.
 Snake is the bright dot, food the faint ones.  Be warned food goes bad and
 turns to stone, just like the perimeter wall made of stone.  Avoid your tail
 and avoid stones. This is for version 2 microbits.
-<br/><br/>
-<h3>Two Weeks - a fortnight clone for microbit</h3>
-<br/><br/>
+<br/>
+<h3>Two Weeks - a Fortnight clone for microbit</h3>
+<br/>
 <code>two_weeks_xclient.py</code><br/>
 <code>two_weeks_xserver.py</code>
 <br/><br/>
-This game requires a gamezip64 and a version 2 microbit per player and a further version 2 microbit to host the game.  Freshly flash the microbits with <code>uflash</code> or copy a <code>microbit.hex</code> file directly to the microbit. Use microFS or the file transfer facility in <code>mu-editor</code>.
-All players microbits run the program <code>two_weeks_xserver.py</code> copy it with the following commands<br/><br/>
+This game requires a gamezip64 and a version 2 microbit per player and a further version 2 microbit to host the game.  Freshly flash the microbits with <code>uflash</code> or copy a <code>microbit.hex</code> file directly to the microbit. Use microFS or the file transfer facility in <code>mu-editor</code>. to copy to programs over
+Each players microbit runs the program <code>two_weeks_xserver.py</code> copy it with the following commands<br/><br/>
 <code>ufs put two_weeks_xserver.py main.py</code><br/><br/>
 The final microbit which hosts the game running program <code>two_weeks_xclient.py</code> copy it to the microbit as follows.<br/><br/>
 <code>ufs put two_weeks_xclient.py</code><br/><br/>
 
-Reset the host, switch on the gamezip64's there is a thirty second period to enroll for the game, the host (xclient) will be scrolling the message 'Two Weeks' and each player should be scrolling their player number. 5, 4, 3, 2 ,1 the game has started. You have been abandonned in a unknown world, use the compass displayed on the microbit to find the exit. Guide the red character to the purple door and win the race.
+Reset the host, switch on the gamezip64's there is a thirty second period to enroll for the game, the host (xclient) will be scrolling the message 'Two Weeks' and each player should be scrolling their player number. Then 5, 4, 3, 2, 1 the game has started. You have been abandonned in a unknown world, use the compass displayed on the microbit to find the exit. Guide the red character to the purple door and win the race.
 
 This is a genuine multi player game.
