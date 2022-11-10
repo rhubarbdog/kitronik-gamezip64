@@ -67,7 +67,8 @@ while True:
                     break
                 break
 
-display.scroll(" Player " + str(player + 1), wait = False, loop = True)
+if not death:
+    display.scroll(" Player " + str(player + 1), wait = False, loop = True)
 
 # monitor the radio for the go message
 while not death:
@@ -100,7 +101,8 @@ winner = 0
 while not death:
     if winner == 1:
         winner = 2
-        
+
+    sleep(snooze)
     # get all messages until my screen appears
     while True:
         message = radio.receive()

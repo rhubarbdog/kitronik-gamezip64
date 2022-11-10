@@ -152,10 +152,11 @@ for i in range(total_players):
     players_todo.append(i)
     
 while True:
-    if loops % 2000 == 0:
+    if loops % 100 == 0:
         image, index = ticker(index)
     display.show(image)
-
+    sleep(snooze)
+    
     if winner != -1:
         winner = -2
 
