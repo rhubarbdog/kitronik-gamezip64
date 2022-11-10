@@ -24,7 +24,6 @@ Keys have the following methods:<br/>
 <tr><td><code>.is_pressed()</code></td><td><code>boolean</code></td><td>returns True if the button is pressed.</td></tr>
 <tr><td><code>.was_pressed()</code></td><td><code>boolean</code></td><td>returns True if the key has been pressed since reset or the last call to this method.</td></tr>
 </table>
-<br/>
 <code>GAMEZIP</code> has the following methods:<br/>
 <table>
 <tr><td>method</td></tr>
@@ -98,4 +97,4 @@ message 'Two Weeks' and each player should be scrolling their player number.
 Then 5, 4, 3, 2, 1 the game has started. You have been abandonned in a unknown
 world, use the compass displayed on the microbit to find the exit.
 Guide the red sprite to the purple exit and win the race. This is a genuine
-multi player game.
+multi player game.  To start a new game just reset all microbits, ensure the host is ready to receive your enrollment requests.
