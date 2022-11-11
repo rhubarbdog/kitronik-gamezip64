@@ -8,14 +8,27 @@ import neopixel
 import music
 import radio
 import machine
-import time
 
-snooze = 15
+snooze = 50
 max_players = 20
 # Message IDs
 # 0 - global message to all clients
 # 1 - message from client to server
 # 2 - message from server to client
+
+# Messages Sent
+# 1, -1 (enroll me), machine_id
+# 1, 1 (button presses), player, buttons pressed
+
+# Messages Received
+#  2, player, 0, machine_id
+#  2, -1, machine_id, too many players
+#  2, -2, machine_id, game already started 
+#  2, player, 1, winner
+#  2, player, 2, screen, player x, player y, compass
+#
+#  0, Ready
+#  0, Game Over
 
 # pallet dictionary
 # (other) players, grass colour one , grass colour two
@@ -40,7 +53,7 @@ def plot(xxx, yyy, color):
 
 display.scroll("Two Weeks")
 mach_id = machine.unique_id()
-radio.send("1,0," + str(mach_id))
+radio.send("1,-1," + str(mach_id))
 
 player = None
 death = False
@@ -57,8 +70,8 @@ while True:
         if message[0] == 0:
             display.scroll(message[1], wait = False)
         # message to a client is it me?
-        elif message[0] == 2:
-            if str(mach_id) == str(message[2]):
+        elif message[0] == 2 and message[2] == 0:
+            if str(mach_id) == str(message[3]):
                 player = message[1]
                 if player == -1 or player == -2:
                     music.play(["c2:2"], pin2, wait = False)
@@ -93,7 +106,7 @@ while not death:
             raise CrashError
 
 
-# play the game
+# play the game - main loop
 loops = 0
 screen = None
 winner = 0
@@ -115,19 +128,19 @@ while not death:
             if message[0] == 0:
                 display.scroll(message[1], wait = False, loop = True)
                 break
-            elif message[0] == 2 and message[1] == player:
-                if message[2] == 'Winner':
+            elif message[0] == 2 and message[1] == player: 
+                if message[2] == 1:
                     music.play(music.POWER_UP, pin2, False)
-                    display.scroll(message[2], wait = False)
+                    display.scroll(message[3], wait = False)
                     winner = 1
                 else:
                     screen = []
                     for i in range(8):
-                        screen.append(message[2][i * 8: (i * 8) + 8])
+                        screen.append(message[3][i * 8: (i * 8) + 8])
 
-                    player_x = message[3]
-                    player_y = message[4]
-                    compass = message[5]
+                    player_x = message[4]
+                    player_y = message[5]
+                    compass = message[6]
                     break
 
     # draw screen, compass and player
@@ -167,10 +180,10 @@ while not death:
             buttons += 'r'
 
     # send buttons to server
-    if loops % 10 == 0 and buttons != "":
+    if loops % 3 == 0 and buttons != "":
         radio.send("1,1," + str(player) + ",'" + buttons + "'")
 
-    if loops == 10000:
+    if loops == 30000:
         loops = 0
         
     loops += 1

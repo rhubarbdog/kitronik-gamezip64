@@ -10,9 +10,24 @@ import random
 import math
 
 # Message IDs
+# 2 - message from xclient to xserver
+# 1 - message from xserver to xclient
 # 0 - global message to all clients
-# 1 - message from client to server
-# 2 - message from server to client
+
+# Messages Received
+# 1, -1 (enroll me), machine_id
+# 1, 1 (button presses), player, buttons pressed
+
+# Messages Sent
+#  2, player, 0, machine_id
+#  2, -1, machine_id, too many players
+#  2, -2, machine_id, game already started 
+#  2, player, 1, winner
+#  2, player, 2, screen, player x, player y, compass
+#
+#  0, Ready
+#  0, Game Over
+
 wall = ("wwwwwwwwwwwwwwwwwwww" * 5) + "ww"
 screen = ["w" + ("..,,..,,..,,..,,..,," * 5) + "w", \
           "w" + ("..,,..,,..,,..,,..,," * 5) + "w", \
@@ -21,7 +36,7 @@ screen = ["w" + ("..,,..,,..,,..,,..,," * 5) + "w", \
 screen = [wall] + (screen * 25) + [wall]
 
 root_2_1 = 0.7071067811865475244
-snooze = 15
+snooze = 50
 max_players = 20
 total_players = 0
 max_walls = 200
@@ -75,12 +90,12 @@ while True:
     else:
         message = eval("(" + message + ")")
         # enrollment message from a client
-        if message[0] == 1 and message[1] == 0:
+        if message[0] == 1 and message[1] == -1:
             if total_players == max_players:
                 radio.send("2,-1," + str(message[2]) + ",'Sorry," \
                            " too many players'")
             else:
-                radio.send("2," + str(total_players) + "," + str(message[2]))
+                radio.send("2," + str(total_players) + ",0," + str(message[2]))
                 total_players += 1
                 
     two_mins = 0.5 * 1000 * 60
@@ -153,7 +168,7 @@ for i in range(total_players):
     players_todo.append(i)
     
 while total_players > 0:
-    if loops % 100 == 0:
+    if loops % 10 == 0:
         image, index = ticker(index)
     display.show(image)
     sleep(snooze)
@@ -204,7 +219,7 @@ while total_players > 0:
         if diff_x == 0 and diff_y == 0:
             clock = -2
             if winner == -1:
-                radio.send("2," + str(index) + ",'Winner'")
+                radio.send("2," + str(index) + ",1,'Winner'")
                 winner = index
         elif absolute(diff_x) < 4 and absolute(diff_y) < 4:
             clock = -1
@@ -243,7 +258,7 @@ while total_players > 0:
             else:
                 clock = 6 - int(4 * theta / 90)
                         
-        radio.send("2," + str(player_list.index(tmp)) + ",'" + message + \
+        radio.send("2," + str(player_list.index(tmp)) + ",2,'" + message + \
                    "'," + str(player_x - begin_x) + "," + \
                    str(player_y - begin_y) + "," + str(clock))
 
