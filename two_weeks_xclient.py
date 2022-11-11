@@ -12,14 +12,14 @@ import math
 # Message IDs
 # 2 - message from xclient to xserver
 # 1 - message from xserver to xclient
-# 0 - global message to all clients
+# 0 - global message to all xservers
 
 # Messages Received
 # 1, -1 (enroll me), machine_id
 # 1, 1 (button presses), player, buttons pressed
 
 # Messages Sent
-#  2, player, 0, machine_id
+#  2, player, machine_id
 #  2, -1, machine_id, too many players
 #  2, -2, machine_id, game already started 
 #  2, player, 1, winner
@@ -43,7 +43,7 @@ max_walls = 200
 exit_x = 0
 exit_y = 0
 
-radio.config(channel = 14, queue = int(max_players * 1.5), length = 80)
+radio.config(channel = 14, queue = int(max_players * 1.5), length = 96)
 radio.on()
 
 class CrashError(Exception):
@@ -95,7 +95,7 @@ while True:
                 radio.send("2,-1," + str(message[2]) + ",'Sorry," \
                            " too many players'")
             else:
-                radio.send("2," + str(total_players) + ",0," + str(message[2]))
+                radio.send("2," + str(total_players) + "," + str(message[2]))
                 total_players += 1
                 
     two_mins = 0.5 * 1000 * 60
@@ -336,7 +336,7 @@ while total_players > 0:
                     player_list = player_list[:i] + \
                         [[player[0] + dx, player[1] + dy]] +\
                         player_list[i + 1:]
-            elif message[0] == 1 and message[1] == 0:
+            elif message[0] == 1 and message[1] == -1:
                 radio.send("2,-2," + str(message[2]) + \
                            ", ' Game already started'")
             else:
