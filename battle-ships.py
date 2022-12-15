@@ -43,7 +43,7 @@ def draw_opposition():
             if opposition[y][x] == ' ':
                 colour = [0, 0, 0]
             elif opposition[y][x] == 'H':
-                colour = [120, 0, 0]
+               colour = [120, 0, 0]
             else:
                 colour = [20, 20, 20]
                 
@@ -236,8 +236,8 @@ while True:
     if first and selected == 'me':
         dead = drop_bomb()
 
-    if dead:
-        break
+        if dead:
+            break
 
     draw_screen()
     joypad.show_screen()
@@ -299,7 +299,7 @@ while True:
     
 draw_screen()
 joypad.show_screen()
-if destroyed:
+if dead:
     show = Image.SAD
     joypad.play_tune(music.FUNERAL)
 else:
